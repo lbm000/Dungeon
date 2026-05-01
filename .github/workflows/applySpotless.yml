@@ -31,7 +31,7 @@ jobs:
             - name: Get PR branch
               id: pr
               run: |
-                  PR_BRANCH=$(gh pr view ${{ github.event.issue.number }} --json headRefName -q .headRefName)
+                  PR_BRANCH=$(gh pr view ${{ github.event.issue.number }} --repo ${{ github.repository }} --json headRefName -q .headRefName)
                    echo "branch=$PR_BRANCH" >> $GITHUB_OUTPUT
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
