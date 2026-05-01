@@ -26,10 +26,12 @@ public class BasicStarter {
    * @param args command-line arguments (not used in this starter)
    */
   public static void main(String[] args) {
-    DungeonLoader.addLevel(Tuple.of("maze",    DungeonLevel.class));
+    DungeonLoader.addLevel(Tuple.of("maze", DungeonLevel.class));
     try {
-      Game.loadConfig(new SimpleIPath("dungeon_config.json"),    KeyboardConfig.class);
-    } catch (IOException e) { throw new RuntimeException(e); }
+      Game.loadConfig(new SimpleIPath("dungeon_config.json"), KeyboardConfig.class);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
     Game.disableAudio(true);
     Game.userOnSetup(() -> Game.add(EntityFactory.newHero()));
     Game.frameRate(30);
