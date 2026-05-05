@@ -47,7 +47,7 @@ jobs:
                   echo "::error::/spotless is not supported for fork PRs. Please run ./gradlew spotlessApply locally."
                   exit 1
                   fi
-                  env:
+              env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Checkout PR Branch
